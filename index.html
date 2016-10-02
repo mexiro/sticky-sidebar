@@ -5,7 +5,7 @@
   <!-- Basic Page Needs
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   <meta charset="utf-8">
-  <title>Your page title here :)</title>
+  <title>Sticky Sidebar Demo</title>
   <meta name="description" content="">
   <meta name="author" content="">
 
@@ -17,14 +17,14 @@
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   <link href="http://fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
 
+
   <!-- CSS
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   <link rel="stylesheet" href="css/normalize.css">
   <link rel="stylesheet" href="css/skeleton.css">
 
-  <!-- Favicon
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-  <link rel="icon" type="image/png" href="images/favicon.png">
+
+
 
   <script src="https://code.jquery.com/jquery-3.1.1.js"
           integrity="sha256-16cdPddA6VdVInumRGo6IbivbERE8p7CQR3HzTBuELA="
@@ -33,21 +33,32 @@
 
   <script>
 
-
-
     $( document ).ready(function() {
 
-      var stickPos = 120;
 
 
-      $(window).scroll(function (event) {
-        var scrollPos = $(window).scrollTop();
+      $( window ).scroll(function (event) {
 
-        if(scrollPos >= stickPos){
+        var pos = 120;
+        var scroll = $(window).scrollTop();
+        var below = false;
+
+        if(pos <= scroll){
+          below = true;
+        }else{
+          below = false;
+        }
+
+        if(below == true){
           $('#sidebar-fluid').hide();
           $('#sidebar-fixed').show();
-        }else{
+        }else if(below == false){
           $('#sidebar-fluid').show();
+          $('#sidebar-fixed').hide();
+        }
+
+        if(below == true && $(window).width() < 683){
+          console.log('special sauce');
           $('#sidebar-fixed').hide();
         }
 
@@ -56,44 +67,79 @@
     });
 
 
-
-
-
-
-
   </script>
 
-
-
-
   <style>
-    h1{margin: 44px;}
-
+    h1{ margin: 44px; margin-left: 0px;}
+    main{ background-color: lightgray;height: 1000px; }
+    #placeholder{ opacity: 0; }
 
     #sidebar-fluid{
       background-color: yellow;
       height: 200px;
+      width: 210px;
+      max-width: 100%;
       margin-bottom: 20px;
     }
+
     #sidebar-fixed{
       background-color: orange;
       height: 200px;
       width: 210px;
+      max-width: 100%;
       margin-bottom: 20px;
 
       position: fixed;
+      display: none;
+
+      margin-top: -121px;
+    }
+
+    @media (max-width: 1110px){
+      #sidebar-fixed{
+        width: 190px;
+      }
+      #sidebar-fluid{
+        width: 190px;
+      }
+    }
+    @media (max-width: 990px){
+      #sidebar-fixed{
+        width: 170px;
+      }
+      #sidebar-fluid{
+        width: 170px;
+      }
+    }
+    @media (max-width: 970px){
+      #sidebar-fixed{
+        width: 150px;
+      }
+      #sidebar-fluid{
+        width: 150px;
+      }
+    }
+    @media (max-width: 810px){
+      #sidebar-fixed{
+        width: 130px;
+      }
+      #sidebar-fluid{
+        width: 130px;
+      }
+    }
+    @media (max-width: 683px){
+      #sidebar-fluid{
+        /* reset sidebar to remove static width*/
+        width: 683px;
+        max-width: 100%;
+      }
 
 
     }
 
-    main{
-      background-color: lightgray;
-      height: 1200px;
-    }
 
-    #placeholder{
-       opacity: 0;
-    }
+
+
   </style>
 
 
