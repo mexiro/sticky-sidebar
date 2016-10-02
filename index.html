@@ -30,6 +30,18 @@
   <script>
     $( document ).ready(function() {
 
+      var setState = function() {
+        if(length > yPos && width > xPos){
+          //use the fixed sidebar state
+          $('#sidebar-fluid').hide();
+          $('#sidebar-fixed').show();
+        }else{
+          //use the fluid sidebar state
+          $('#sidebar-fluid').show();
+          $('#sidebar-fixed').hide();
+        }
+      }
+
       var xPos = 683;
       var yPos = 120;
 
@@ -46,39 +58,34 @@
         setState();
       });
 
-      var setState = function() {
-        if(length > yPos && width > xPos){
-          //use the fixed sidebar state
-          $('#sidebar-fluid').hide();
-          $('#sidebar-fixed').show();
-        }else{
-          //use the fluid sidebar state
-          $('#sidebar-fluid').show();
-          $('#sidebar-fixed').hide();
-        }
-      }
     });
   </script>
 
   <style>
-    h1{ margin: 44px; margin-left: 0px;}
-    main{ background-color: lightgray;height: 1000px; }
+    h1{ margin: 44px; margin-left: 0px; color: darkgray;}
+    p{ color: darkgray; }
+    main{ background-color: lightgray; margin-bottom: 11px; padding-left: 11px; padding-top: 6px;}
+    ul{list-style-type: none; padding-left: 6px; color: darkgray; }
+    a{ color: lightgray;} a:hover{ background-color: darkgray; color: white;}
+    hr { border-bottom: 1px solid darkgray; }
     #placeholder{ opacity: 0; }
 
     #sidebar-fluid{
-      background-color: yellow;
-      height: 200px;
+
+      margin-right: 11px;
+      background-color: lightgray;
+      height: 240px;
       width: 210px;
-      max-width: 100%;
-      margin-bottom: 20px;
+
+
     }
 
     #sidebar-fixed{
-      background-color: orange;
-      height: 200px;
+      background-color: lightgray;
+      height: 240px;
       width: 210px;
-      max-width: 100%;
-      margin-bottom: 20px;
+
+
 
       position: fixed;
       display: none;
@@ -134,17 +141,37 @@
     <div class="row">
       <header>
         <h1>Sticky Sidebar Demo</h1>
+        <p>by <a href="#">tristan.ag</a></p>
       </header>
     </div>
   </div>
 
+  <hr />
 
   <div class="container">
     <div class="row">
       <div class="three columns">
         <aside>
-          <div id="sidebar-fluid"></div>
-          <div id="sidebar-fixed"></div>
+          <div id="sidebar-fluid">
+            <ul>
+              <li>link</li>
+              <li>link</li>
+              <li>link</li>
+              <li>link</li>
+              <li>link</li>
+              <li>link</li>
+            </ul>
+          </div>
+          <div id="sidebar-fixed">
+            <ul>
+              <li>link</li>
+              <li>link</li>
+              <li>link</li>
+              <li>link</li>
+              <li>link</li>
+              <li>link</li>
+            </ul>
+          </div>
 
           <span id="placeholder">placeholder</span>
 
@@ -153,7 +180,36 @@
 
       <div class="nine columns">
         <main>
-
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis fermentum neque sed pulvinar dictum. Pellentesque posuere nibh ut arcu feugiat, sed feugiat augue pellentesque. Morbi interdum consequat pulvinar. Cras non imperdiet nulla. Quisque eget pretium justo. Interdum et malesuada fames ac ante ipsum primis in faucibus. Curabitur posuere vehicula maximus. Sed congue ac odio quis pharetra. Suspendisse eget lacus quis turpis venenatis ornare. Maecenas pellentesque aliquet laoreet. Aliquam vehicula ipsum felis, convallis maximus velit blandit nec. Vestibulum sit amet tempus tellus. Pellentesque auctor vel felis eu ultrices. Donec fermentum luctus erat, et volutpat lorem laoreet id. Sed auctor vulputate ex at tempor. Nulla consectetur neque enim.
+          </p>
+          <p>
+Vestibulum sed quam sapien. Vivamus efficitur mauris at enim finibus, eu posuere tellus viverra. Integer lacus odio, auctor quis condimentum ac, suscipit vel lacus. Integer non metus cursus purus ultricies hendrerit. Vestibulum ac ipsum et elit molestie ultricies non non ligula. Suspendisse varius tellus nec sem bibendum, sit amet feugiat nulla sodales. Nullam consequat dui at orci pretium, ut pharetra lorem mollis. Nam sit amet nisl magna. Sed malesuada lacinia libero, in maximus tellus pharetra sed. Vivamus interdum ultricies placerat.
+          </p>
+          <p>
+Nullam congue dictum nunc vel faucibus. Nullam vehicula vestibulum felis vel consequat. Donec volutpat sollicitudin lorem sed eleifend. In pretium pellentesque tortor eget porttitor. Donec vitae est ut nisl fringilla dignissim. Integer a orci nunc. Pellentesque vel elit ex.
+          </p>
+          <p>
+Nunc sed accumsan lacus. Mauris nec diam in sapien luctus volutpat a pretium libero. Sed luctus libero a ligula auctor vestibulum. Vivamus egestas blandit dolor ut consequat. Aenean at dolor sapien. Ut sollicitudin urna ac orci hendrerit aliquet. Aliquam volutpat nulla a augue egestas hendrerit. Mauris dictum eros id odio rhoncus, sit amet viverra magna rhoncus. Suspendisse eget porta mi. Duis venenatis felis eu metus fermentum varius. Nullam placerat nisi quis rutrum mollis. Vivamus tempor arcu id ipsum fermentum, in pulvinar nisi mollis. Mauris imperdiet ante nisi, non fermentum velit feugiat eu.
+          </p>
+          <p>
+Vivamus ultrices risus dolor, at fringilla lectus rutrum ac. Quisque tortor lorem, varius at diam eu, facilisis aliquam risus. Donec finibus odio eros, a convallis mi pretium suscipit. Nunc fermentum libero leo, eget fermentum turpis consequat vel. Phasellus eget luctus elit. Donec eu velit in nunc iaculis feugiat. Quisque ac sapien vitae erat luctus vehicula. Duis dapibus feugiat condimentum.
+          </p>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis fermentum neque sed pulvinar dictum. Pellentesque posuere nibh ut arcu feugiat, sed feugiat augue pellentesque. Morbi interdum consequat pulvinar. Cras non imperdiet nulla. Quisque eget pretium justo. Interdum et malesuada fames ac ante ipsum primis in faucibus. Curabitur posuere vehicula maximus. Sed congue ac odio quis pharetra. Suspendisse eget lacus quis turpis venenatis ornare. Maecenas pellentesque aliquet laoreet. Aliquam vehicula ipsum felis, convallis maximus velit blandit nec. Vestibulum sit amet tempus tellus. Pellentesque auctor vel felis eu ultrices. Donec fermentum luctus erat, et volutpat lorem laoreet id. Sed auctor vulputate ex at tempor. Nulla consectetur neque enim.
+          </p>
+          <p>
+Vestibulum sed quam sapien. Vivamus efficitur mauris at enim finibus, eu posuere tellus viverra. Integer lacus odio, auctor quis condimentum ac, suscipit vel lacus. Integer non metus cursus purus ultricies hendrerit. Vestibulum ac ipsum et elit molestie ultricies non non ligula. Suspendisse varius tellus nec sem bibendum, sit amet feugiat nulla sodales. Nullam consequat dui at orci pretium, ut pharetra lorem mollis. Nam sit amet nisl magna. Sed malesuada lacinia libero, in maximus tellus pharetra sed. Vivamus interdum ultricies placerat.
+          </p>
+          <p>
+Nullam congue dictum nunc vel faucibus. Nullam vehicula vestibulum felis vel consequat. Donec volutpat sollicitudin lorem sed eleifend. In pretium pellentesque tortor eget porttitor. Donec vitae est ut nisl fringilla dignissim. Integer a orci nunc. Pellentesque vel elit ex.
+          </p>
+          <p>
+Nunc sed accumsan lacus. Mauris nec diam in sapien luctus volutpat a pretium libero. Sed luctus libero a ligula auctor vestibulum. Vivamus egestas blandit dolor ut consequat. Aenean at dolor sapien. Ut sollicitudin urna ac orci hendrerit aliquet. Aliquam volutpat nulla a augue egestas hendrerit. Mauris dictum eros id odio rhoncus, sit amet viverra magna rhoncus. Suspendisse eget porta mi. Duis venenatis felis eu metus fermentum varius. Nullam placerat nisi quis rutrum mollis. Vivamus tempor arcu id ipsum fermentum, in pulvinar nisi mollis. Mauris imperdiet ante nisi, non fermentum velit feugiat eu.
+          </p>
+          <p>
+Vivamus ultrices risus dolor, at fringilla lectus rutrum ac. Quisque tortor lorem, varius at diam eu, facilisis aliquam risus. Donec finibus odio eros, a convallis mi pretium suscipit. Nunc fermentum libero leo, eget fermentum turpis consequat vel. Phasellus eget luctus elit. Donec eu velit in nunc iaculis feugiat. Quisque ac sapien vitae erat luctus vehicula. Duis dapibus feugiat condimentum.
+          </p>
         </main>
       </div>
 
