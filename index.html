@@ -17,14 +17,10 @@
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   <link href="http://fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
 
-
   <!-- CSS
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   <link rel="stylesheet" href="css/normalize.css">
   <link rel="stylesheet" href="css/skeleton.css">
-
-
-
 
   <script src="https://code.jquery.com/jquery-3.1.1.js"
           integrity="sha256-16cdPddA6VdVInumRGo6IbivbERE8p7CQR3HzTBuELA="
@@ -32,41 +28,36 @@
   </script>
 
   <script>
-
     $( document ).ready(function() {
 
+      var xPos = 683;
+      var yPos = 120;
 
+      var length = $(window).scrollTop();
+      var width = $(window).width();
 
       $( window ).scroll(function (event) {
+        length = $(window).scrollTop();
+        setState();
+      });
 
-        var pos = 120;
-        var scroll = $(window).scrollTop();
-        var below = false;
+      $( window ).resize(function() {
+        width = $(window).width();
+        setState();
+      });
 
-        if(pos <= scroll){
-          below = true;
-        }else{
-          below = false;
-        }
-
-        if(below == true){
+      var setState = function() {
+        if(length > yPos && width > xPos){
+          //use the fixed sidebar state
           $('#sidebar-fluid').hide();
           $('#sidebar-fixed').show();
-        }else if(below == false){
+        }else{
+          //use the fluid sidebar state
           $('#sidebar-fluid').show();
           $('#sidebar-fixed').hide();
         }
-
-        if(below == true && $(window).width() < 683){
-          console.log('special sauce');
-          $('#sidebar-fixed').hide();
-        }
-
-      });
-
+      }
     });
-
-
   </script>
 
   <style>
@@ -133,21 +124,12 @@
         width: 683px;
         max-width: 100%;
       }
-
-
     }
-
-
-
-
   </style>
-
-
 </head>
+
 <body>
 
-  <!-- Primary Page Layout
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   <div class="container">
     <div class="row">
       <header>
@@ -159,16 +141,10 @@
 
   <div class="container">
     <div class="row">
-
       <div class="three columns">
         <aside>
-
-          <div id="sidebar-fluid">
-
-          </div>
-          <div id="sidebar-fixed">
-
-          </div>
+          <div id="sidebar-fluid"></div>
+          <div id="sidebar-fixed"></div>
 
           <span id="placeholder">placeholder</span>
 
